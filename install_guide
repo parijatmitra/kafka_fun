@@ -24,12 +24,15 @@ $ ls
 You will observe bin and config folders
 
 -> Create a topic
+(look latest at the official site mentioned at the top)
 
 $ bin/kafka-topics.sh --create --topic ${topic_name} --bootstrap-server localhost:9092
 or
 $ bin/kafka-topics.sh --describe --topic ${topic_name} --bootstrap-server localhost:9092
 
 -> Publish
+(look latest at the official site mentioned at the top)
+
 $ bin/kafka-console-producer.sh --topic ${topic_name} --bootstrap-server localhost:9092
 
 This is my first event (first publish)
@@ -38,6 +41,8 @@ This is my second event (second publish)
 Open another terminal , interact with the container
 
 -> Consume
+ (look latest at the official site mentioned at the top)
+
 $ bin/kafka-console-consumer.sh --topic ${topic_name} --from-beginning --bootstrap-server localhost:9092
 
 
