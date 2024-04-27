@@ -1,0 +1,44 @@
+INSTALL GUIDE  (Docker is great man!)
+
+-> Pull docker image
+watch the latest image from official kafka site:
+https://kafka.apache.org/documentation/#quickstart
+
+full official site :
+https://kafka.apache.org/documentation/
+
+$ docker pull apache/kafka:3.7.0
+
+-> Start the docker container
+$ docker run -d -it --rm -p 9092:9092 apache/kafka:3.7.0
+
+
+-> Interact with the container
+$ docker exec -it ${container_id} sh
+
+
+-> Go to the files in the docker container storage
+$ ls
+$ cd /opt/kafka
+$ ls
+You will observe bin and config folders
+
+-> Create a topic
+
+$ bin/kafka-topics.sh --create --topic ${topic_name} --bootstrap-server localhost:9092
+or
+$ bin/kafka-topics.sh --describe --topic ${topic_name} --bootstrap-server localhost:9092
+
+-> Publish
+$ bin/kafka-console-producer.sh --topic ${topic_name} --bootstrap-server localhost:9092
+
+This is my first event (first publish)
+This is my second event (second publish)
+
+Open another terminal , interact with the container
+
+-> Consume
+$ bin/kafka-console-consumer.sh --topic ${topic_name} --from-beginning --bootstrap-server localhost:9092
+
+
+
